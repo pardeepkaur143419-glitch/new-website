@@ -1,0 +1,18 @@
+<form onsubmit="
+event.preventDefault();
+registerCustomer(
+document.getElementById('name').value,
+document.getElementById('email').value,
+document.getElementById('password').value
+);
+">
+
+<input id="name" placeholder="Full Name" required>
+
+<input id="email" type="email" placeholder="Email" required>
+
+<input id="password" type="password" placeholder="Password" required>
+
+<button type="submit">Register</button>
+
+</form>

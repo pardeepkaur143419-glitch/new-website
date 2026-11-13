@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Brew Bliss Admin</title>
+<style>
+body {
+    font-family: Arial;
+    background: #fffaf5;
+    padding: 20px;
+    color: #3e2723;
+}
+
+h1 {
+    text-align: center;
+}
+
+.order {
+    background: white;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #ccc;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Brew Bliss - Admin Dashboard</h1>
+
+<h2>Customer Orders</h2>
+
+<div id="orders"></div>
+
+<script src="backend.js"></script>
+
+<script>
+
+const orders = getAllOrders();
+
+const container = document.getElementById("orders");
+
+if (orders.length === 0) {
+    container.innerHTML = "No orders available.";
+}
+
+orders.forEach(order => {
+
+    container.innerHTML += `
+    <div class="order">
+        <h3>${order.customer}</h3>
+        <p>Email: ${order.email}</p>
+        <p>Phone: ${order.phone}</p>
+        <p>Address: ${order.address}</p>
+        <p>Total: ₹${order.total}</p>
+        <p>Status: ${order.status}</p>
+        <p>Date: ${order.date}</p>
+    </div>
+    `;
+
+});
+
+</script>
+
+</body>
+</html>
